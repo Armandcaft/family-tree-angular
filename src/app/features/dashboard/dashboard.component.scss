@@ -77,6 +77,18 @@
     font-size: 0.875rem;
     color: var(--color-neutral-500);
     margin: 0;
+
+    .bolt-link {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: var(--font-weight-medium);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-primary-600);
+        text-decoration: underline;
+      }
+    }
   }
 }
 
