@@ -1,0 +1,85 @@
+<div class="dashboard">
+  <div class="dashboard-header">
+    <h2>Dashboard</h2>
+    <button class="btn btn-primary">
+      <lucide-angular [img]="Plus"></lucide-angular>
+      New Tree
+    </button>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="stats-grid">
+    <div *ngFor="let stat of stats" class="stats-card">
+      <div class="stats-icon" [ngClass]="stat.iconType">
+        <lucide-angular [img]="stat.icon"></lucide-angular>
+      </div>
+      <div class="stats-value">{{ stat.value }}</div>
+      <div class="stats-label">{{ stat.title }}</div>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="content-grid">
+    <!-- Recent Activity -->
+    <div class="content-card">
+      <div class="card-header">
+        <h3>Recent Activity</h3>
+        <a href="#" class="view-all-link">View all activities</a>
+      </div>
+      <div class="card-content">
+        <div class="activity-list">
+          <div *ngFor="let activity of recentActivity" class="activity-item">
+            <div class="activity-icon" [style.background-color]="activity.iconColor">
+              <lucide-angular [img]="activity.icon"></lucide-angular>
+            </div>
+            <div class="activity-content">
+              <div class="activity-title">{{ activity.title }}</div>
+              <div class="activity-time">{{ activity.time }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Members -->
+    <div class="content-card">
+      <div class="card-header">
+        <h3>Recent Members</h3>
+        <a href="#" class="view-all-link">View all members</a>
+      </div>
+      <div class="card-content">
+        <div class="members-list">
+          <div *ngFor="let member of recentMembers" class="member-item">
+            <img [src]="member.avatar" [alt]="member.name" class="member-avatar">
+            <div class="member-info">
+              <div class="member-name">{{ member.name }}</div>
+              <div class="member-relation">{{ member.relation }}</div>
+              <div class="member-birth">{{ member.birthDate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Media -->
+  <div class="content-card">
+    <div class="card-header">
+      <h3>Recent Media</h3>
+      <a href="#" class="view-all-link">View all</a>
+    </div>
+    <div class="card-content">
+      <div class="media-grid">
+        <div *ngFor="let media of recentMedia" class="media-item">
+          <img [src]="media.url" [alt]="media.alt" class="media-image">
+          <div class="media-overlay">
+            <span class="media-title">{{ media.title }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <p class="copyright">© Family Genealogy Tree 2025</p>
+    </div>
+  </div>
+</div>

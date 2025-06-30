@@ -1,0 +1,40 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <lucide-angular [img]="TreePine" class="logo-icon"></lucide-angular>
+      <span class="logo-text">ArbreGénéa</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul class="nav-list">
+      <li *ngFor="let item of menuItems" class="nav-item">
+        <a 
+          [routerLink]="item.route" 
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          <lucide-angular [img]="item.icon" class="nav-icon"></lucide-angular>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-section">
+    <div class="section-header">
+      <h3 class="section-title">Your Trees</h3>
+      <button class="btn-icon" title="Add new tree">
+        <lucide-angular [img]="Plus"></lucide-angular>
+      </button>
+    </div>
+    <ul class="tree-list">
+      <li *ngFor="let tree of trees" class="tree-item" [class.active]="tree.active">
+        <div class="tree-info">
+          <span class="tree-name">{{ tree.name }}</span>
+          <span class="tree-count">{{ tree.memberCount }} members</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="header-content">
+    <div class="header-center">
+      <div class="search-container">
+        <lucide-angular [name]="'Search'" class="search-icon"></lucide-angular>
+        <input
+          type="text"
+          placeholder="Search in tree..."
+          class="search-input"
+          name="searchQuery"
+          [(ngModel)]="searchQuery"
+        >
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="notifications">
+        <button class="btn-icon notification-btn" [class.has-notifications]="hasUnreadNotifications">
+          <lucide-angular [name]="'Bell'"></lucide-angular>
+          <span *ngIf="hasUnreadNotifications" class="notification-badge"></span>
+        </button>
+      </div>
+
+      <div class="user-menu">
+        <div class="user-info">
+          <img [src]="currentUser.avatar" [alt]="currentUser.name || 'User avatar'" class="user-avatar">
+          <div class="user-details">
+            <span class="user-name">{{ currentUser.name }}</span>
+            <span class="user-role">{{ currentUser.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

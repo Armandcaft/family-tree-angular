@@ -1,0 +1,164 @@
+// Common component styles that can be reused
+@use 'mixins' as m;
+
+// Card component
+.card {
+  @include m.card;
+}
+
+.card-header {
+  @include m.flex-between;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-neutral-200);
+  
+  h3 {
+    margin-bottom: 0;
+    color: var(--color-neutral-900);
+  }
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-footer {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+// Button components
+.btn {
+  @include m.button-base;
+  
+  &.btn-primary {
+    @include m.button-primary;
+  }
+  
+  &.btn-secondary {
+    @include m.button-secondary;
+  }
+  
+  &.btn-sm {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.875rem;
+  }
+  
+  &.btn-lg {
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    font-size: 1.125rem;
+  }
+}
+
+// Grid system
+.grid {
+  display: grid;
+  gap: var(--spacing-xl);
+  
+  &.grid-1 { grid-template-columns: 1fr; }
+  &.grid-2 { grid-template-columns: repeat(2, 1fr); }
+  &.grid-3 { grid-template-columns: repeat(3, 1fr); }
+  &.grid-4 { grid-template-columns: repeat(4, 1fr); }
+  
+  @include m.mobile {
+    &.grid-2,
+    &.grid-3,
+    &.grid-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @include m.tablet {
+    &.grid-3,
+    &.grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Stats card specific styling
+.stats-card {
+  @include m.card;
+  @include m.flex-column;
+  align-items: center;
+  text-align: center;
+  min-height: 120px;
+  
+  .stats-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    @include m.flex-center;
+    
+    &.primary {
+      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+      color: white;
+    }
+    
+    &.secondary {
+      background: linear-gradient(135deg, var(--color-secondary-500), var(--color-secondary-600));
+      color: white;
+    }
+    
+    &.accent {
+      background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-600));
+      color: white;
+    }
+    
+    &.info {
+      background: linear-gradient(135deg, var(--color-info), #60a5fa);
+      color: white;
+    }
+  }
+  
+  .stats-value {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-900);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .stats-label {
+    font-size: 0.875rem;
+    color: var(--color-neutral-600);
+    margin-bottom: 0;
+  }
+}
+
+// Activity item styling
+.activity-item {
+  @include m.flex-between;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background: var(--color-neutral-50);
+  }
+  
+  .activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    @include m.flex-center;
+    margin-right: var(--spacing-lg);
+    flex-shrink: 0;
+  }
+  
+  .activity-content {
+    flex: 1;
+    
+    .activity-title {
+      font-weight: var(--font-weight-medium);
+      color: var(--color-neutral-900);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .activity-time {
+      font-size: 0.875rem;
+      color: var(--color-neutral-500);
+    }
+  }
+}
